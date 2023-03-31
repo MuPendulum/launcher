@@ -7,6 +7,8 @@ JDK_BUILD="10"
 JDK_HASH="fe669935609086e76cb0b829e92808766cbf8cb7bda57a76b47813b08584bfd2"
 PACKR_VERSION="runelite-1.7"
 PACKR_HASH="f61c7faeaa364b6fa91eb606ce10bd0e80f9adbce630d2bae719aef78d45da61"
+RUNELITE_LAUNCHER_VERSION="2.6.3"
+RUNELITE_LAUNCHER_HASH="b4db68442950be4a44c07d02debc851dda6e48f66f1969f22cc01b5423097f3c"
 APPIMAGE_VERSION="13"
 
 umask 022
@@ -25,6 +27,13 @@ if ! [ -d linux-jdk ] ; then
     mkdir linux-jdk
     mv jdk-$JDK_VER+$JDK_BUILD-jre linux-jdk/jre
 fi
+
+if ! [ -f target/RuneLite.jar ] ; then
+    curl -Lo target/RuneLite.jar \
+        https://github.com/runelite/launcher/releases/download/${RUNELITE_LAUNCHER_VERSION}/RuneLite.jar
+fi
+
+echo "${RUNELITE_LAUNCHER_HASH}  target/RuneLite.jar" | sha256sum -c
 
 if ! [ -f packr_${PACKR_VERSION}.jar ] ; then
     curl -Lo packr_${PACKR_VERSION}.jar \
