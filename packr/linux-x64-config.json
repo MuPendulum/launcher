@@ -8,8 +8,14 @@
     "mainclass": "net.runelite.launcher.Launcher",
     "vmargs": [
        "-Drunelite.launcher.reflect=true",
+       "-Xms512m",
        "-Xmx512m",
        "-Xss2m",
+       "-XX:+AlwaysPreTouch",
+       "-XX:+UseNUMA",
+       "-XX:+UseShenandoahGC",
+       "-XX:ShenandoahGCHeuristics=compact",
+       "-XX:+DisableExplicitGC",
        "-XX:CompileThreshold=1500"
     ],
     "output": "native-linux-x86_64/RuneLite.AppDir/",
