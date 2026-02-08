@@ -4,8 +4,14 @@
   ],
   "mainClass": "net.runelite.launcher.Launcher",
   "vmArgs": [
-    "-Xmx768m",
+    "-Xms1280m",
+    "-Xmx1280m",
     "-Xss2m",
+    "-XX:+AlwaysPreTouch",
+    "-XX:+UnlockExperimentalVMOptions",
+    "-XX:+UseShenandoahGC",
+    "-XX:ShenandoahMinFreeThreshold=30",
+    "-XX:+DisableExplicitGC",
     "-XX:CompileThreshold=1500"
   ]
 }
