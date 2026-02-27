@@ -4,8 +4,8 @@
   ],
   "mainClass": "net.runelite.launcher.Launcher",
   "vmArgs": [
-    "-Xms1280m",
-    "-Xmx1280m",
+    "-Xms1536m",
+    "-Xmx1536m",
     "-Xss2m",
     "-XX:+AlwaysPreTouch",
     "-XX:+UnlockExperimentalVMOptions",
